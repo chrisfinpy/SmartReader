@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartReader — Infográfico Técnico do TCC</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-8 m-0">
+  <div class="max-w-6xl mx-auto space-y-6">
+
+    <!-- HERO INFOGRAPHIC HEADER -->
+    <header class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 md:p-8 space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] flex items-center justify-center text-xl font-bold shadow-sm">
+            ◈
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)]">
+                TCC · IFNMG Janaúba · 2026
+              </span>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full border border-[var(--border)] text-[var(--muted-foreground)]">
+                PWA + Node.js + Supabase
+              </span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tight mt-1">
+              SmartReader — Leitor de PDF Acessível
+            </h1>
+          </div>
+        </div>
+        <div class="text-left md:text-right text-xs text-[var(--muted-foreground)] space-y-1">
+          <div>Padrão de Interface: <strong class="text-[var(--foreground)]">WCAG 2.2 AA</strong></div>
+          <div>Licença: <strong class="text-[var(--foreground)]">ISC · v1.0.0</strong></div>
+        </div>
+      </div>
+
+      <p class="text-sm md:text-base text-[var(--muted-foreground)] leading-relaxed max-w-4xl">
+        Aplicação web progressiva (PWA) voltada à inclusão digital e acadêmica. Combina biblioteca online em nuvem,
+        upload local com persistência offline, síntese de voz (TTS), reconhecimento óptico de caracteres (OCR) no navegador,
+        tradução automática para Português, intérprete virtual de LIBRAS (VLibras) e exportação de PDFs com marcações.
+      </p>
+
+      <!-- KPI STRIP -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Arquivos Core</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-1)]">16</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Front + Back + PWA</div>
+        </div>
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Acessibilidade</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-2)]">6 Pilares</div>
+          <div class="text-xs text-[var(--muted-foreground)]">TTS, OCR, LIBRAS...</div>
+        </div>
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Temas Visuais</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-3)]">4 Modos</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Escuro, Claro, Contraste, Sépia</div>
+        </div>
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Persistência</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-4)]">3 Camadas</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Supabase · IDB · LS</div>
+        </div>
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Rotas Express</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-5)]">4 Rotas</div>
+          <div class="text-xs text-[var(--muted-foreground)]">REST + Proxy CORS</div>
+        </div>
+        <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-3">
+          <div class="text-xs text-[var(--muted-foreground)]">Limite Upload</div>
+          <div class="text-xl font-bold font-mono text-[var(--chart-6)]">30 MB</div>
+          <div class="text-xs text-[var(--muted-foreground)]">Multer MemoryStorage</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="flex flex-wrap gap-2 bg-[var(--card)] border border-[var(--border)] rounded-xl p-2" role="tablist" aria-label="Seções do Infográfico">
+      <button data-tab="overview" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer bg-[var(--primary)] text-[var(--primary-foreground)]">
+        1. Pilares &amp; UX Acessível
+      </button>
+      <button data-tab="architecture" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer text-[var(--muted-foreground)] hover:bg-[var(--secondary)]">
+        2. Arquitetura Interativa
+      </button>
+      <button data-tab="stack" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer text-[var(--muted-foreground)] hover:bg-[var(--secondary)]">
+        3. Stack, APIs &amp; Dados
+      </button>
+      <button data-tab="audit" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer text-[var(--muted-foreground)] hover:bg-[var(--secondary)]">
+        4. Auditoria Técnica (Banca)
+      </button>
+    </nav>
+
+    <!-- TAB 1: PILARES & UX -->
+    <section id="tab-overview" class="tab-panel space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-1)]">MOTOR PDF</span>
+            <span class="text-xs text-[var(--muted-foreground)]">PDF.js v2.16.105</span>
+          </div>
+          <h2 class="text-base font-bold">Renderização Híbrida Canvas + TextLayer</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Renderiza páginas vetoriais em <code class="text-[var(--code-foreground)]">&lt;canvas&gt;</code> com zoom dinâmico de
+            <strong>50% a 300%</strong> (passo 10% no slider / 20% nos botões) e sobrepõe uma camada transparente de texto
+            (<code class="text-[var(--code-foreground)]">renderTextLayer</code>) que permite seleção, cópia e busca textual com destaque visual.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Busca na página</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Atalhos de teclado</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Tela cheia</span>
+          </div>
+        </article>
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-2)]">VOZ / TTS</span>
+            <span class="text-xs text-[var(--muted-foreground)]">Web Speech API</span>
+          </div>
+          <h2 class="text-base font-bold">Síntese de Voz (Text-to-Speech)</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Lê o conteúdo da página ativa ou do catálogo da biblioteca utilizando
+            <code class="text-[var(--code-foreground)]">window.speechSynthesis</code>. Prioriza texto extraído via OCR quando disponível
+            e permite ajustar velocidade (<strong>0.5x–2.0x</strong>), tom (<strong>0.5–2.0</strong>), pausa/retomada e seleção de vozes PT/EN por nome.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Atalho R</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Esc para parar</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Leitura do Catálogo</span>
+          </div>
+        </article>
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-3)]">VISÃO / OCR</span>
+            <span class="text-xs text-[var(--muted-foreground)]">Tesseract.js v5</span>
+          </div>
+          <h2 class="text-base font-bold">OCR Client-Side para PDFs Escaneados</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Carrega o motor Tesseract sob demanda (<em>lazy loading</em>), converte o <code class="text-[var(--code-foreground)]">&lt;canvas&gt;</code>
+            em PNG via <code class="text-[var(--code-foreground)]">toDataURL()</code> e executa reconhecimento em Português
+            (<code class="text-[var(--code-foreground)]">'por'</code>) com barra de progresso em tempo real, alimentando TTS, Tradução e VLibras.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">100% no navegador</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Badge OCR ativo</span>
+          </div>
+        </article>
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-4)]">LIBRAS</span>
+            <span class="text-xs text-[var(--muted-foreground)]">VLibras Gov.br</span>
+          </div>
+          <h2 class="text-base font-bold">Integração Nativa com VLibras</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Incorpora o widget oficial <code class="text-[var(--code-foreground)]">vlibras.gov.br/app/vlibras-plugin.js</code> tanto na Biblioteca
+            quanto no Leitor. Atualiza dinamicamente uma região acessível <code class="text-[var(--code-foreground)]">aria-live="polite"</code>
+            (<code class="text-[var(--code-foreground)]">#vlibras-text</code>) com o texto da página, OCR ou lista de livros.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Avatar 3D</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Sincronia automática</span>
+          </div>
+        </article>
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-5)]">ANOTAÇÕES</span>
+            <span class="text-xs text-[var(--muted-foreground)]">pdf-lib v1.17.1</span>
+          </div>
+          <h2 class="text-base font-bold">Marca-Texto &amp; Exportação Binária</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Captura retângulos de seleção do usuário na <code class="text-[var(--code-foreground)]">.text-layer</code>, desenha marcações
+            amarelas no canvas e, ao exportar, utiliza <code class="text-[var(--code-foreground)]">pdf-lib</code> carregando os bytes originais do
+            IndexedDB com conversão de eixo Y (topo-esquerda para base-esquerda) gerando <code class="text-[var(--code-foreground)]">editado_*.pdf</code>.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Coordenadas normalizadas</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Download direto</span>
+          </div>
+        </article>
+
+        <article class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--chart-6)]">IDIOMAS &amp; NUVEM</span>
+            <span class="text-xs text-[var(--muted-foreground)]">Translate + Supabase</span>
+          </div>
+          <h2 class="text-base font-bold">Tradução PT-BR &amp; Acervo Online</h2>
+          <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">
+            Traduz trechos selecionados ou texto do OCR para Português via Google Translate API (<code class="text-[var(--code-foreground)]">sl=auto&amp;tl=pt</code>).
+            Na Biblioteca, conecta-se à API no Render e ao Supabase (PostgreSQL + Storage + Auth), com busca instantânea por título/autor e envio local via IndexedDB.
+          </p>
+          <div class="pt-2 border-t border-[var(--card-border)] flex flex-wrap gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Supabase Auth</span>
+            <span class="px-2 py-0.5 rounded border border-[var(--border)]">Proxy anti-CORS</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- TEMAS E ATALHOS -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+          <div>
+            <h3 class="text-base font-bold">4 Temas de Acessibilidade Visual (WCAG 2.2 AA)</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Persistidos em <code class="text-[var(--code-foreground)]">localStorage ('sr_theme')</code> entre Biblioteca e Leitor.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="border border-[var(--card-border)] rounded-lg p-3 bg-[var(--content)] space-y-1.5">
+              <div class="flex items-center justify-between">
+                <strong class="font-semibold">1. Escuro (theme-dark)</strong>
+                <span class="w-4 h-4 rounded-full border border-[var(--border)]" style="background:#0f1117"></span>
+              </div>
+              <div class="text-[var(--muted-foreground)] font-mono">Fundo #0f1117 · Destaque #6366f1</div>
+              <div class="text-[var(--muted-foreground)]">Padrão para conforto em baixa luz.</div>
+            </div>
+            <div class="border border-[var(--card-border)] rounded-lg p-3 bg-[var(--content)] space-y-1.5">
+              <div class="flex items-center justify-between">
+                <strong class="font-semibold">2. Claro (theme-light)</strong>
+                <span class="w-4 h-4 rounded-full border border-[var(--border)]" style="background:#f0f2f8"></span>
+              </div>
+              <div class="text-[var(--muted-foreground)] font-mono">Fundo #f0f2f8 · Destaque #4f46e5</div>
+              <div class="text-[var(--muted-foreground)]">Leitura diurna tradicional.</div>
+            </div>
+            <div class="border border-[var(--card-border)] rounded-lg p-3 bg-[var(--content)] space-y-1.5">
+              <div class="flex items-center justify-between">
+                <strong class="font-semibold">3. Alto Contraste</strong>
+                <span class="w-4 h-4 rounded-full border border-[var(--border)]" style="background:#ffff00"></span>
+              </div>
+              <div class="text-[var(--muted-foreground)] font-mono">Fundo #000000 · Destaque #ffff00</div>
+              <div class="text-[var(--muted-foreground)]">Voltado para baixa visão severa.</div>
+            </div>
+            <div class="border border-[var(--card-border)] rounded-lg p-3 bg-[var(--content)] space-y-1.5">
+              <div class="flex items-center justify-between">
+                <strong class="font-semibold">4. Sépia (theme-sepia)</strong>
+                <span class="w-4 h-4 rounded-full border border-[var(--border)]" style="background:#f5edd6"></span>
+              </div>
+              <div class="text-[var(--muted-foreground)] font-mono">Fundo #f5edd6 · Destaque #8b6914</div>
+              <div class="text-[var(--muted-foreground)]">Reduz fadiga ocular e brilho azul.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+          <div>
+            <h3 class="text-base font-bold">Navegação por Teclado &amp; Recursos de UX</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Implementados em <code class="text-[var(--code-foreground)]">script.js</code> com bypass automático dentro de inputs.</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">→ / PgDn</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Próxima página</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">← / PgUp</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Página anterior</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">+ / -</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Zoom ±20%</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">R</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Iniciar/parar TTS</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">O</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Abrir arquivo PDF</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">S</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Salvar progresso</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">F</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Tela cheia</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">Esc</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Parar leitura</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-2.5">
+              <kbd class="font-mono font-bold text-[var(--primary)]">Drag</kbd>
+              <div class="text-[var(--muted-foreground)] mt-0.5">Sidebar 200–480px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ARQUITETURA INTERATIVA -->
+    <section id="tab-architecture" class="tab-panel hidden space-y-5">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-lg font-bold">Mapa Interativo da Arquitetura (4 Camadas)</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Clique em qualquer bloco abaixo para inspecionar os arquivos, protocolos e fluxos de dados.</p>
+          </div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)]">
+            Cliente-Servidor + BaaS + Edge Browser APIs
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <button data-node="frontend" class="arch-node text-left bg-[var(--content)] border-2 border-[var(--primary)] rounded-xl p-4 space-y-2 cursor-pointer transition">
+            <div class="text-xs font-mono text-[var(--chart-1)] font-bold">CAMADA 1 · FRONTEND PWA</div>
+            <div class="font-bold text-sm">Biblioteca &amp; Leitor</div>
+            <div class="text-xs text-[var(--muted-foreground)]">index.html, leitor.html, biblioteca.js, script.js, sw.js, manifest.json</div>
+          </button>
+
+          <button data-node="storage-local" class="arch-node text-left bg-[var(--content)] border border-[var(--border)] rounded-xl p-4 space-y-2 cursor-pointer transition hover:border-[var(--primary)]">
+            <div class="text-xs font-mono text-[var(--chart-2)] font-bold">CAMADA 2 · CLIENT STORAGE</div>
+            <div class="font-bold text-sm">IndexedDB + LocalStorage</div>
+            <div class="text-xs text-[var(--muted-foreground)]">SmartReaderDB (ArrayBuffer), progresso, tema, largura sidebar</div>
+          </button>
+
+          <button data-node="backend" class="arch-node text-left bg-[var(--content)] border border-[var(--border)] rounded-xl p-4 space-y-2 cursor-pointer transition hover:border-[var(--primary)]">
+            <div class="text-xs font-mono text-[var(--chart-3)] font-bold">CAMADA 3 · API NODE.JS</div>
+            <div class="font-bold text-sm">Express v5 (Render)</div>
+            <div class="text-xs text-[var(--muted-foreground)]">server.js, livrosRoutes.js, livrosController.js, upload.js</div>
+          </button>
+
+          <button data-node="cloud" class="arch-node text-left bg-[var(--content)] border border-[var(--border)] rounded-xl p-4 space-y-2 cursor-pointer transition hover:border-[var(--primary)]">
+            <div class="text-xs font-mono text-[var(--chart-4)] font-bold">CAMADA 4 · CLOUD &amp; APIS</div>
+            <div class="font-bold text-sm">Supabase + Serviços Externos</div>
+            <div class="text-xs text-[var(--muted-foreground)]">PostgreSQL, Storage, Auth, VLibras, Google Translate, CDNs</div>
+          </button>
+        </div>
+
+        <!-- DETAIL INSPECTOR -->
+        <div id="arch-detail" class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-5 space-y-3"></div>
+      </div>
+
+      <!-- FLUXOS PRINCIPAIS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold text-[var(--chart-1)]">Fluxo A — Leitura de Livro do Acervo Online</h3>
+          <ol class="text-xs text-[var(--muted-foreground)] space-y-2 list-decimal list-inside">
+            <li><code class="text-[var(--code-foreground)]">index.html</code> dispara <code class="text-[var(--code-foreground)]">fetchLivros()</code> para <code class="text-[var(--code-foreground)]">GET /api/livros</code> no Render.</li>
+            <li>Backend consulta tabela <code class="text-[var(--code-foreground)]">livros</code> no Supabase ordenada por <code class="text-[var(--code-foreground)]">created_at DESC</code>.</li>
+            <li>Card do livro redireciona para <code class="text-[var(--code-foreground)]">leitor.html?pdf=/api/proxy-pdf?url=...&amp;title=...</code>.</li>
+            <li><code class="text-[var(--code-foreground)]">carregarLivroSelecionado()</code> baixa o blob via proxy server-side (evitando CORS).</li>
+            <li>Converte em <code class="text-[var(--code-foreground)]">File</code>, salva no IndexedDB e renderiza via <code class="text-[var(--code-foreground)]">PDF.js</code>.</li>
+          </ol>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <h3 class="text-sm font-bold text-[var(--chart-2)]">Fluxo B — Upload Local &amp; Retomada de Sessão</h3>
+          <ol class="text-xs text-[var(--muted-foreground)] space-y-2 list-decimal list-inside">
+            <li>Usuário envia PDF (clique ou drag &amp; drop) em <code class="text-[var(--code-foreground)]">index.html</code> ou <code class="text-[var(--code-foreground)]">leitor.html</code>.</li>
+            <li>Na Biblioteca, <code class="text-[var(--code-foreground)]">openUploadedPDF()</code> grava o <code class="text-[var(--code-foreground)]">ArrayBuffer</code> em duas chaves do IndexedDB (<code class="text-[var(--code-foreground)]">current_pdf</code> e <code class="text-[var(--code-foreground)]">uploaded_pdf_*</code>).</li>
+            <li>Metadados (nome, tamanho, data) vão para <code class="text-[var(--code-foreground)]">sr_uploaded_books</code> (até 10 itens) e abre <code class="text-[var(--code-foreground)]">leitor.html?uploaded=1</code>.</li>
+            <li>Ao recarregar a página (F5), <code class="text-[var(--code-foreground)]">autoRestore()</code> lê o PDF do IndexedDB e retoma a página salva em <code class="text-[var(--code-foreground)]">sr_progress</code>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: STACK & DADOS -->
+    <section id="tab-stack" class="tab-panel hidden space-y-5">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-lg font-bold">Inventário Técnico Completo</h2>
+          <div class="flex flex-wrap gap-1.5">
+            <button data-filter="all" class="filter-btn text-xs px-3 py-1 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer">Todos</button>
+            <button data-filter="backend" class="filter-btn text-xs px-3 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Backend</button>
+            <button data-filter="frontend" class="filter-btn text-xs px-3 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Frontend &amp; CDNs</button>
+            <button data-filter="storage" class="filter-btn text-xs px-3 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Banco &amp; Storage</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2.5 pr-4">Componente / Pacote</th>
+                <th class="py-2.5 pr-4">Versão / Origem</th>
+                <th class="py-2.5 pr-4">Categoria</th>
+                <th class="py-2.5">Responsabilidade no Projeto</th>
+              </tr>
+            </thead>
+            <tbody id="tech-table-body" class="divide-y divide-[var(--card-border)]"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ENDPOINTS & SCHEMA -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <h3 class="text-base font-bold">Rotas da API Express (<code class="text-[var(--code-foreground)]">server.js</code>)</h3>
+          <div class="space-y-2 text-xs">
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <span class="font-mono font-bold text-[var(--success)]">GET</span> <code class="font-mono">/api/livros</code>
+              <p class="text-[var(--muted-foreground)] mt-1">Lista registros da tabela <code class="text-[var(--code-foreground)]">livros</code> ordenados por <code class="text-[var(--code-foreground)]">created_at DESC</code>.</p>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <span class="font-mono font-bold text-[var(--warning)]">POST</span> <code class="font-mono">/api/livros</code>
+              <p class="text-[var(--muted-foreground)] mt-1">Recebe multipart (<code class="text-[var(--code-foreground)]">pdf</code>, <code class="text-[var(--code-foreground)]">capa</code>, <code class="text-[var(--code-foreground)]">titulo</code>, <code class="text-[var(--code-foreground)]">autor</code>), envia ao Storage e grava no PostgreSQL (HTTP 201).</p>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <span class="font-mono font-bold text-[var(--success)]">GET</span> <code class="font-mono">/api/proxy-pdf?url=...</code>
+              <p class="text-[var(--muted-foreground)] mt-1">Faz fetch server-side da URL do PDF e devolve buffer com <code class="text-[var(--code-foreground)]">Content-Type: application/pdf</code> para evitar bloqueio de CORS.</p>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <span class="font-mono font-bold text-[var(--success)]">GET</span> <code class="font-mono">/teste123</code>
+              <p class="text-[var(--muted-foreground)] mt-1">Endpoint simples de verificação de saúde retornando <code class="text-[var(--code-foreground)]">"Teste OK"</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+          <h3 class="text-base font-bold">Modelo de Dados &amp; Chaves Locais</h3>
+          <div class="space-y-2 text-xs">
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <strong class="text-[var(--chart-1)]">Supabase PostgreSQL · Tabela <code>livros</code></strong>
+              <div class="font-mono text-[var(--muted-foreground)] mt-1">id, titulo, autor, url_pdf, capa_url, created_at</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <strong class="text-[var(--chart-2)]">Supabase Storage · Buckets</strong>
+              <div class="font-mono text-[var(--muted-foreground)] mt-1">livros-pdf (PDFs) · capa_livros (Capas)</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <strong class="text-[var(--chart-3)]">IndexedDB · <code>SmartReaderDB</code> (v1)</strong>
+              <div class="font-mono text-[var(--muted-foreground)] mt-1">ObjectStore: pdfs · Chaves: current_pdf, uploaded_pdf_*</div>
+            </div>
+            <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-lg p-3">
+              <strong class="text-[var(--chart-4)]">localStorage · Chaves de Estado</strong>
+              <div class="font-mono text-[var(--muted-foreground)] mt-1">sr_theme, sr_current_filename, sr_progress, sr_sidebar_width, sr_uploaded_books</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: AUDITORIA TÉCNICA PARA BANCA -->
+    <section id="tab-audit" class="tab-panel hidden space-y-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-3">
+        <h2 class="text-lg font-bold">Pontos de Auditoria Identificados na Varredura do Código</h2>
+        <p class="text-xs text-[var(--muted-foreground)]">
+          Conhecer limitações e débitos técnicos reais demonstra maturidade de engenharia na arguição da banca do TCC (e permite corrigi-los antes da entrega final).
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-2">
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--warning)]">1. Filtro de Upload vs Capa (upload.js)</div>
+            <p class="text-[var(--muted-foreground)]">
+              <code class="text-[var(--code-foreground)]">upload.js</code> valida <code class="text-[var(--code-foreground)]">file.mimetype === 'application/pdf'</code> para todos os arquivos,
+              o que impede o envio de imagens (PNG/JPG) no campo <code class="text-[var(--code-foreground)]">capa</code> da rota <code class="text-[var(--code-foreground)]">POST /api/livros</code>.
+            </p>
+          </div>
+
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--warning)]">2. Conflito Cache SW vs limparCache() (script.js)</div>
+            <p class="text-[var(--muted-foreground)]">
+              <code class="text-[var(--code-foreground)]">sw.js</code> cria o cache <code class="text-[var(--code-foreground)]">smartreader-v2</code>, porém as linhas finais de <code class="text-[var(--code-foreground)]">script.js</code>
+              executam <code class="text-[var(--code-foreground)]">limparCache()</code> ao carregar, apagando o Cache Storage e anulando o modo offline por SW.
+            </p>
+          </div>
+
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--warning)]">3. Função Duplicada e HTML Estrutural</div>
+            <p class="text-[var(--muted-foreground)]">
+              Em <code class="text-[var(--code-foreground)]">script.js</code>, <code class="text-[var(--code-foreground)]">downloadModifiedPDF()</code> está declarada duas vezes.
+              Em <code class="text-[var(--code-foreground)]">leitor.html</code>, há um <code class="text-[var(--code-foreground)]">#translate-status</code> duplicado e uma tag <code class="text-[var(--code-foreground)]">&lt;/section&gt;</code> sobrando.
+            </p>
+          </div>
+
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--warning)]">4. Link da Sidebar e Ícones PWA</div>
+            <p class="text-[var(--muted-foreground)]">
+              Em <code class="text-[var(--code-foreground)]">index.html</code> (linha 64), o botão "Leitor de PDF" aponta para <code class="text-[var(--code-foreground)]">index.html</code> em vez de <code class="text-[var(--code-foreground)]">leitor.html</code>.
+              Além disso, <code class="text-[var(--code-foreground)]">manifest.json</code> referencia <code class="text-[var(--code-foreground)]">icon-192.png</code> e <code class="text-[var(--code-foreground)]">icon-512.png</code>, ausentes na pasta raiz.
+            </p>
+          </div>
+
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--primary)]">5. SSRF no Proxy PDF (server.js)</div>
+            <p class="text-[var(--muted-foreground)]">
+              A rota <code class="text-[var(--code-foreground)]">GET /api/proxy-pdf?url=...</code> faz fetch de qualquer URL passada via query string. Em produção, recomenda-se validar o domínio (allowlist do host Supabase).
+            </p>
+          </div>
+
+          <div class="bg-[var(--content)] border border-[var(--card-border)] rounded-xl p-4 space-y-1.5">
+            <div class="font-bold text-[var(--primary)]">6. Chave Supabase Pública &amp; Auto-save</div>
+            <p class="text-[var(--muted-foreground)]">
+              A <code class="text-[var(--code-foreground)]">anon key</code> em <code class="text-[var(--code-foreground)]">supabase-client.js</code> é pública por design (exige políticas RLS no Supabase).
+              O salvamento de progresso no leitor atualmente exige clique no botão ou tecla <kbd>S</kbd>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabBtns.forEach(b => {
+          const active = b === btn;
+          b.className = active
+            ? 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer bg-[var(--primary)] text-[var(--primary-foreground)]'
+            : 'tab-btn px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer text-[var(--muted-foreground)] hover:bg-[var(--secondary)]';
+        });
+        tabPanels.forEach(p => {
+          p.classList.toggle('hidden', p.id !== 'tab-' + target);
+        });
+      });
+    });
+
+    const nodeDetails = {
+      frontend: {
+        title: 'Camada 1 — Frontend PWA (Biblioteca + Leitor)',
+        files: ['index.html', 'biblioteca.js', 'biblioteca.css', 'leitor.html', 'script.js', 'style.css', 'manifest.json', 'sw.js'],
+        desc: 'Interface dupla sem frameworks pesados (Vanilla JS + CSS Custom Properties). A Biblioteca exibe o acervo remoto e arquivos enviados localmente, com filtro por título/autor, TTS do catálogo e envio para VLibras. O Leitor renderiza PDFs com PDF.js, aplica 4 temas WCAG 2.2 AA, lê páginas em voz alta, executa OCR via Tesseract.js, traduz para português, marca trechos e exporta PDF modificado com pdf-lib.',
+        highlights: ['Skip links e ARIA live regions', 'Sidebar redimensionável (200px–480px) + gaveta mobile', 'Service Worker smartreader-v2 + Web App Manifest']
+      },
+      'storage-local': {
+        title: 'Camada 2 — Persistência Client-Side (Offline & Preferências)',
+        files: ['IndexedDB: SmartReaderDB (v1)', 'localStorage'],
+        desc: 'Permite abrir PDFs enviados localmente sem depender de servidor e restaurar automaticamente a sessão ao recarregar a página (F5).',
+        highlights: [
+          'IndexedDB store "pdfs": armazena ArrayBuffer em current_pdf e uploaded_pdf_<nome>',
+          'localStorage sr_uploaded_books: índice JSON com até 10 arquivos locais recentes',
+          'localStorage sr_progress: mapa { arquivo: { page, savedAt } }',
+          'localStorage sr_theme & sr_sidebar_width: preferências de acessibilidade e layout'
+        ]
+      },
+      backend: {
+        title: 'Camada 3 — Backend REST & Proxy CORS (Node.js + Express v5)',
+        files: ['server.js', 'routes/livrosRoutes.js', 'controllers/livrosController.js', 'upload.js', 'config/supabase.js'],
+        desc: 'Servidor Express (CommonJS) configurado para deploy no Render (https://tcc-smartreader.onrender.com) ou porta local process.env.PORT || 3000. Atua como API de catálogo/upload de livros e proxy HTTP binário para contornar restrições de CORS ao carregar PDFs externos no PDF.js.',
+        highlights: [
+          'Express ^5.2.1 com CORS habilitado globalmente',
+          'Multer ^2.2.0 com memoryStorage e limite de 30 MB',
+          'Dotenv ^17.4.2 carregando SUPABASE_URL e SUPABASE_ANON_KEY',
+          'Rota /api/proxy-pdf faz streaming em memória (ArrayBuffer -> Buffer)'
+        ]
+      },
+      cloud: {
+        title: 'Camada 4 — Supabase BaaS & APIs Externas',
+        files: ['supabase-client.js', 'config/supabase.js', 'CDNs & Endpoints Públicos'],
+        desc: 'Infraestrutura em nuvem no Supabase combinada com bibliotecas e serviços especializados de acessibilidade carregados no navegador.',
+        highlights: [
+          'Supabase PostgreSQL: tabela "livros" (id, titulo, autor, url_pdf, capa_url, created_at)',
+          'Supabase Storage: buckets "livros-pdf" e "capa_livros"',
+          'Supabase Auth: login e cadastro por e-mail/senha no modal-auth',
+          'APIs Externas: VLibras Gov.br, Google Translate (gtx), PDF.js, Tesseract.js v5, pdf-lib 1.17.1'
+        ]
+      }
+    };
+
+    const archNodes = document.querySelectorAll('.arch-node');
+    const archDetail = document.getElementById('arch-detail');
+
+    function renderNode(key) {
+      const d = nodeDetails[key];
+      archNodes.forEach(n => {
+        const active = n.dataset.node === key;
+        n.className = active
+          ? 'arch-node text-left bg-[var(--content)] border-2 border-[var(--primary)] rounded-xl p-4 space-y-2 cursor-pointer transition'
+          : 'arch-node text-left bg-[var(--content)] border border-[var(--border)] rounded-xl p-4 space-y-2 cursor-pointer transition hover:border-[var(--primary)]';
+      });
+      archDetail.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="text-base font-bold">${d.title}</h3>
+          <div class="flex flex-wrap gap-1.5">
+            ${d.files.map(f => `<span class="text-xs font-mono px-2 py-0.5 rounded bg-[var(--card)] border border-[var(--border)] text-[var(--code-foreground)]">${f}</span>`).join('')}
+          </div>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)] leading-relaxed">${d.desc}</p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-1">
+          ${d.highlights.map(h => `<li class="text-xs bg-[var(--card)] border border-[var(--card-border)] rounded-lg px-3 py-2">• ${h}</li>`).join('')}
+        </ul>
+      `;
+    }
+
+    archNodes.forEach(n => n.addEventListener('click', () => renderNode(n.dataset.node)));
+    renderNode('frontend');
+
+    const techRows = [
+      { name: 'express', ver: '^5.2.1 (npm)', cat: 'backend', desc: 'Framework HTTP/REST para rotas /api/livros, /api/proxy-pdf e /teste123.' },
+      { name: '@supabase/supabase-js', ver: '^2.110.9 (npm) / @2 (CDN)', cat: 'storage', desc: 'Cliente oficial usado no backend (DB + Storage) e no frontend (Auth).' },
+      { name: 'multer', ver: '^2.2.0 (npm)', cat: 'backend', desc: 'Middleware multipart/form-data com memoryStorage() e limite de 30 MB.' },
+      { name: 'cors', ver: '^2.8.6 (npm)', cat: 'backend', desc: 'Libera requisições cross-origin entre o frontend estático e o backend Render.' },
+      { name: 'dotenv', ver: '^17.4.2 (npm)', cat: 'backend', desc: 'Carrega variáveis SUPABASE_URL, SUPABASE_ANON_KEY e PORT.' },
+      { name: 'PDF.js', ver: '2.16.105 (CDN Cloudflare)', cat: 'frontend', desc: 'Renderiza páginas PDF em <canvas> e gera .text-layer selecionável.' },
+      { name: 'Tesseract.js', ver: 'v5 (CDN jsDelivr, lazy)', cat: 'frontend', desc: 'Motor OCR WebAssembly em Português ("por") aplicado ao canvas da página.' },
+      { name: 'pdf-lib', ver: '1.17.1 (CDN jsDelivr, lazy)', cat: 'frontend', desc: 'Modifica o binário do PDF original inserindo destaques amarelos para download.' },
+      { name: 'Web Speech API', ver: 'Nativa do navegador', cat: 'frontend', desc: 'Leitura em voz alta (TTS) com controle de voz, velocidade (rate) e tom (pitch).' },
+      { name: 'VLibras Widget', ver: 'vlibras.gov.br/app', cat: 'frontend', desc: 'Tradutor automático de texto acessível para Língua Brasileira de Sinais.' },
+      { name: 'Google Translate API', ver: 'translate_a/single (gtx)', cat: 'frontend', desc: 'Tradução automática sob demanda de seleção ou OCR para Português.' },
+      { name: 'Service Worker + Manifest', ver: 'sw.js (smartreader-v2)', cat: 'frontend', desc: 'Instalação como PWA standalone e cache de assets/fontes.' },
+      { name: 'IndexedDB + localStorage', ver: 'SmartReaderDB v1', cat: 'storage', desc: 'Persistência local de binários PDF, histórico de uploads, progresso e tema.' }
+    ];
+
+    const tbody = document.getElementById('tech-table-body');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderTable(cat) {
+      const filtered = cat === 'all' ? techRows : techRows.filter(r => r.cat === cat);
+      tbody.innerHTML = filtered.map(r => `
+        <tr>
+          <td class="py-2.5 pr-4 font-mono font-semibold text-[var(--foreground)]">${r.name}</td>
+          <td class="py-2.5 pr-4 font-mono text-[var(--muted-foreground)]">${r.ver}</td>
+          <td class="py-2.5 pr-4"><span class="px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--secondary-foreground)] uppercase font-mono">${r.cat}</span></td>
+          <td class="py-2.5 text-[var(--muted-foreground)]">${r.desc}</td>
+        </tr>
+      `).join('');
+    }
+
+    filterBtns.forEach(b => {
+      b.addEventListener('click', () => {
+        const f = b.dataset.filter;
+        filterBtns.forEach(btn => {
+          btn.className = btn === b
+            ? 'filter-btn text-xs px-3 py-1 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer'
+            : 'filter-btn text-xs px-3 py-1 rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer';
+        });
+        renderTable(f);
+      });
+    });
+    renderTable('all');
+  </script>
+</body>
+</html>

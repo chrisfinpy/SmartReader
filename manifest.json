@@ -1,0 +1,50 @@
+{
+  "name": "SmartReader — Leitor PDF Acessível",
+  "short_name": "SmartReader",
+  "description": "Ecossistema de leitura digital acessível com Síntese de Voz (TTS), Tradução LIBRAS, OCR no navegador e múltiplos temas visuais. IFNMG Janaúba.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090d16",
+  "theme_color": "#6366f1",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["education", "accessibility", "books"],
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Catálogo de Livros",
+      "short_name": "Biblioteca",
+      "description": "Acessar acervo digital e meus arquivos",
+      "url": "./index.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Leitor Acessível",
+      "short_name": "Leitor",
+      "description": "Abrir visualizador de PDF",
+      "url": "./leitor.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

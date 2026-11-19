@@ -1,0 +1,30 @@
+{
+  "name": "smartreader",
+  "version": "1.0.0",
+  "description": "SmartReader — Leitor PDF Acessível com TTS, LIBRAS, OCR e PWA. IFNMG Janaúba.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "accessibility",
+    "pdf",
+    "tts",
+    "libras",
+    "ocr",
+    "wcag",
+    "pwa",
+    "education"
+  ],
+  "author": "IFNMG Janaúba",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.9",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.2.0"
+  }
+}
