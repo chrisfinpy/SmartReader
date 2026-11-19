@@ -388,7 +388,7 @@
     </div>
   </div>
 
-  <!-- MODAL DE AUTENTICAÇÃO (LOGIN / CADASTRO + LGPD) -->
+  <!-- MODAL DE AUTENTICAÇÃO (LOGIN / CADASTRO) -->
   <div class="modal-overlay" id="modal-auth" role="dialog" aria-modal="true" aria-labelledby="auth-title">
     <div class="modal-container">
       <div class="modal-header">
@@ -407,20 +407,6 @@
             <label class="form-label" for="auth-senha">Senha</label>
             <input type="password" id="auth-senha" class="form-input" placeholder="Sua senha secreta" required autocomplete="current-password">
           </div>
-
-          <!-- Termos de Aceite LGPD (Exibido no Cadastro) -->
-          <div id="lgpd-acceptance" style="display: none; padding: 10px 12px; background: var(--bg-input); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-            <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--text-sec); cursor: pointer;">
-              <input type="checkbox" id="aceitar-lgpd" style="margin-top: 2px; accent-color: var(--accent);">
-              <span>
-                Li e concordo com a <a href="lgpd.html" target="_blank" style="color: var(--accent); font-weight: 600; text-decoration: underline;">Política de Privacidade (LGPD)</a>.
-              </span>
-            </label>
-            <div id="lgpd-error" style="display: none; color: var(--danger); font-size: 11px; margin-top: 5px; font-weight: 600;">
-              É obrigatório aceitar a Política de Privacidade para criar uma conta.
-            </div>
-          </div>
-
           <div style="font-size: 12px; color: var(--text-sec); display: flex; align-items: center; justify-content: space-between;">
             <span id="auth-toggle-msg">Não possui uma conta?</span>
             <a href="#" id="auth-toggle-link" style="color: var(--accent); font-weight: 600; text-decoration: none;">Cadastrar-se</a>
@@ -428,7 +414,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn-action" style="width: auto;" onclick="fecharLogin()">Cancelar</button>
-          <button type="submit" id="btn-auth-submit" class="btn-hero-primary" style="padding: 9px 18px;">Entrar</button>
+          <button type="submit" id="btn-auth-submit" class="btn-primary" style="padding: 9px 18px; width: auto;">Entrar</button>
         </div>
       </form>
     </div>
@@ -488,11 +474,6 @@
   <script>new window.VLibras.Widget();</script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-client.js"></script>
-  <script>
-    if (window.pdfjsLib) {
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-    }
-  </script>
   <script src="script.js?v=6"></script>
 </body>
 </html>
